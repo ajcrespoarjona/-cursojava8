@@ -5,5 +5,4 @@ import com.arquitectura.dominio.Persona;
 public interface FiltroPersona {
 	
 	public boolean test (Persona persona);
-
 }

@@ -36,6 +36,10 @@ public class Persona implements Comparable<Persona>{
 		return this.getNombre().compareTo(otro.getNombre());
 	}
 	
+	public boolean estaJubilado() {
+		return this.getEdad()>65;
+	}
+	
 	
 
 }

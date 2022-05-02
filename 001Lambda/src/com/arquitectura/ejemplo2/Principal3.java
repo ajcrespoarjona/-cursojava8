@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.arquitectura.dominio.Persona;
 
-public class Principal2 {
+public class Principal3 {
 
 	public static void main(String[] args) {
 		
@@ -22,7 +22,9 @@ public class Principal2 {
 		
 		//List<Persona> nuevaLista = buscarPersonaConFiltro(p->p.getApellido().equals("blanco"),listaPersonas);
 		
-		List<Persona> nuevaLista = buscarPersonaConFiltro(p->p.getEdad()>65,listaPersonas);
+		//List<Persona> nuevaLista = buscarPersonaConFiltro(p->p.getEdad()>65,listaPersonas);
+		
+		List<Persona> nuevaLista = buscarPersonaConFiltro(Persona::estaJubilado,listaPersonas);
 		
 		for (Persona p: nuevaLista) {
 			System.out.printf("persona : %s %s %s %n", p.getNombre(), p.getApellido(), p.getEdad());

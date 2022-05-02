@@ -1,11 +1,11 @@
-package com.arquitectura.ejemplo2;
+package com.arquitectura.ejemplo3;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.arquitectura.dominio.Persona;
 
-public class Principal2 {
+public class Principal3 {
 
 	public static void main(String[] args) {
 		
@@ -16,13 +16,12 @@ public class Principal2 {
 		listaPersonas.add(new Persona("gema","blanco",20));
 		listaPersonas.add(new Persona("antonio","perez",70));
 		
-		//List<Persona> nuevaLista = buscarPersonaConFiltro(new FiltroPersonaNombre("pedro"), listaPersonas);
+		FiltroPersona filtroPedro = new FiltroPersonaNombre("pedro");
+		//FiltroPersona filtroPerezOrPedro = filtroPedro.or(new FiltroPersonaApellidos("perez"));
 		
-		//List<Persona> nuevaLista = buscarPersonaConFiltro(new FiltroPersonaApellido("blanco"), listaPersonas);
+		FiltroPersona filtroPerezOrPedro = filtroPedro.or(Persona::estaJubilado);
 		
-		//List<Persona> nuevaLista = buscarPersonaConFiltro(p->p.getApellido().equals("blanco"),listaPersonas);
-		
-		List<Persona> nuevaLista = buscarPersonaConFiltro(p->p.getEdad()>65,listaPersonas);
+		List<Persona> nuevaLista = buscarPersonaConFiltro(filtroPerezOrPedro,listaPersonas);
 		
 		for (Persona p: nuevaLista) {
 			System.out.printf("persona : %s %s %s %n", p.getNombre(), p.getApellido(), p.getEdad());
